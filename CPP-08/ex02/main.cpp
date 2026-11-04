@@ -31,8 +31,6 @@ int main() {
         std::cout << *it << std::endl;
         ++it;
     }
-
-    std::stack<int> s(mstack); // Comprobación de copia al stack original
-
+    std::stack<int> s(mstack);
     return 0;
 }
