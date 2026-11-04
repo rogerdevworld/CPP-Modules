@@ -1,6 +1,6 @@
 #include "MutantStack.hpp"
 #include <iostream>
-#include <list>
+//#include <list>
 
 int main() {
     std::cout << "=== Test con MutantStack ===" << std::endl;

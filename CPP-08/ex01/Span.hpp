@@ -12,7 +12,7 @@ private:
     unsigned int _maxSize;
     std::vector<int> _numbers;
 
-    Span(); // Constructor por defecto privado
+    Span();
 
 public:
     Span(unsigned int N);
@@ -20,9 +20,7 @@ public:
     Span& operator=(const Span& other);
     ~Span();
 
-    void addNumber(int number);
-    
-    // Función plantilla para rangos de iteradores (debe ir en el header)
+    void addNumber(int number);    
     template <typename InputIterator>
     void addRange(InputIterator begin, InputIterator end) {
         if (_numbers.size() + std::distance(begin, end) > _maxSize)
