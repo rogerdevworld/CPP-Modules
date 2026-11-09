@@ -38,7 +38,6 @@ bool BitcoinExchange::validDate(const std::string &date) const
     int y = std::atoi(date.substr(0, 4).c_str());
     int m = std::atoi(date.substr(5, 2).c_str());
     int d = std::atoi(date.substr(8, 2).c_str());
-    //in 2009 bitcoin was created 
     if (y < 2009 || m < 1 || m > 12) return false;
 
     int max_day[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
@@ -51,10 +50,8 @@ bool BitcoinExchange::validDate(const std::string &date) const
 bool BitcoinExchange::validValue(const std::string& valueStr, double& value) const 
 {
     std::stringstream ss(valueStr);
-    //convert the str into a double
     if (!(ss >> value))
         return false;
-    //checking white spaces at the end
     char remaining;
     if (ss >> remaining)
         return false;
@@ -87,7 +84,6 @@ void BitcoinExchange::readCsv(const std::string &filename)
     std::ifstream file(filename.c_str());
     if (!file)
         throw std::runtime_error("Error: could not open the CSV file.");
-    //to skip the header and verify the file isn't empty
     std::string line;
     if (!std::getline(file, line))
         throw std::runtime_error("Error: database file is empty.");
